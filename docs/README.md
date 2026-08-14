@@ -11,6 +11,7 @@
 | 문서 | 범위 | 상태 |
 |---|---|---|
 | [`../CLAUDE.md`](../CLAUDE.md) | 설계 정본 — 기둥·MVP 범위·회원 없음/로컬 온리 정책·BM·스택·결정 로그 | ✅ |
+| [`PLAN.md`](./PLAN.md) | MVP 구현 플랜 — Phase 0~8 착수 순서·완료 기준·진행 현황 | ✅ |
 | [`ARCHITECTURE.md`](./ARCHITECTURE.md) | 서버 경계 — common_server 연동(공지·익명 문의)·전용 서버 없음·선행 작업 | ✅ |
 | [`DOC_DISCIPLINE.md`](./DOC_DISCIPLINE.md) | 문서 작업 규율 (조각 승계) | ✅ |
 | [`SITE_SYSTEM.md`](./SITE_SYSTEM.md) | 도메인 — 사이트·계정·민감 메모·검색·즐겨찾기·브라우저 열기·화면 구조 | ✅ |
