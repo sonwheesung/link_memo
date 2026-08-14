@@ -2,10 +2,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { AdBannerPlaceholder } from '@/components/ad-banner-placeholder';
 import { Screen } from '@/components/screen';
+import { SiteIcon } from '@/components/site-icon';
+import { ensureFavicon } from '@/features/sites/favicon';
 import { listSites, type SiteWithCount } from '@/features/sites/api';
 import { displayDomain } from '@/features/sites/url';
 import { useTheme } from '@/theme/use-theme';
@@ -17,12 +19,17 @@ export default function HomeScreen() {
   const theme = useTheme();
   const [sites, setSites] = useState<SiteWithCount[]>([]);
 
-  // 돌아올 때마다 다시 읽는다 — 추가·수정·삭제 후 목록 동기화
   useFocusEffect(
     useCallback(() => {
-      setSites(listSites());
+      const loaded = listSites();
+      setSites(loaded);
+      // 아이콘 미해석 사이트는 백그라운드로 해석 시도 (세션당 1회)
+      loaded.forEach(ensureFavicon);
     }, []),
   );
+
+  const favorites = sites.filter((s) => s.favorite);
+  const openSite = (id: string) => router.push({ pathname: '/site/[id]', params: { id } });
 
   return (
     <Screen edges={['top', 'bottom']} footer={<AdBannerPlaceholder />}>
@@ -62,17 +69,44 @@ export default function HomeScreen() {
           keyExtractor={(s) => s.id}
           contentContainerStyle={styles.list}
           ListHeaderComponent={
-            <Text style={[styles.sectionTitle, { color: theme.textMuted }]}>{t('site.allSites')}</Text>
+            <View>
+              {favorites.length > 0 ? (
+                <View style={styles.favoritesBlock}>
+                  <Text style={[styles.sectionTitle, { color: theme.textMuted }]}>
+                    {t('common.favorites')}
+                  </Text>
+                  <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                    <View style={styles.favoritesRow}>
+                      {favorites.map((site) => (
+                        <Pressable
+                          key={site.id}
+                          onPress={() => openSite(site.id)}
+                          style={[
+                            styles.favoriteCard,
+                            { backgroundColor: theme.favoriteArea, borderColor: theme.border },
+                          ]}>
+                          <SiteIcon name={site.name} favicon={site.favicon} size={34} />
+                          <Text
+                            numberOfLines={1}
+                            style={[styles.favoriteName, { color: theme.text }]}>
+                            {site.name}
+                          </Text>
+                        </Pressable>
+                      ))}
+                    </View>
+                  </ScrollView>
+                </View>
+              ) : null}
+              <Text style={[styles.sectionTitle, { color: theme.textMuted }]}>
+                {t('site.allSites')}
+              </Text>
+            </View>
           }
           renderItem={({ item }) => (
             <Pressable
-              onPress={() => router.push({ pathname: '/site/[id]', params: { id: item.id } })}
+              onPress={() => openSite(item.id)}
               style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
-              <View style={[styles.avatar, { backgroundColor: theme.selected }]}>
-                <Text style={[styles.avatarText, { color: theme.primary }]}>
-                  {item.name.charAt(0).toUpperCase()}
-                </Text>
-              </View>
+              <SiteIcon name={item.name} favicon={item.favicon} size={40} />
               <View style={styles.cardBody}>
                 <Text numberOfLines={1} style={[styles.cardName, { color: theme.text }]}>
                   {item.name}
@@ -81,6 +115,9 @@ export default function HomeScreen() {
                   {displayDomain(item.url)}
                 </Text>
               </View>
+              {item.favorite ? (
+                <Ionicons name="heart" size={14} color={theme.primary} />
+              ) : null}
               {item.accountCount > 0 ? (
                 <View style={[styles.badge, { backgroundColor: theme.badge }]}>
                   <Text style={[styles.badgeText, { color: theme.badgeText }]}>{item.accountCount}</Text>
@@ -109,7 +146,19 @@ const styles = StyleSheet.create({
   emptyBody: { fontSize: 15, textAlign: 'center' },
   notice: { fontSize: 12, textAlign: 'center', opacity: 0.7, marginTop: 16 },
   list: { paddingHorizontal: 16, paddingBottom: 12, gap: 10 },
-  sectionTitle: { fontSize: 13, fontWeight: '600', marginBottom: 2, marginTop: 4 },
+  sectionTitle: { fontSize: 13, fontWeight: '600', marginBottom: 8, marginTop: 4 },
+  favoritesBlock: { marginBottom: 8 },
+  favoritesRow: { flexDirection: 'row', gap: 10 },
+  favoriteCard: {
+    width: 96,
+    alignItems: 'center',
+    gap: 8,
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+  },
+  favoriteName: { fontSize: 12, fontWeight: '600', maxWidth: 80 },
   card: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -118,8 +167,6 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 14,
   },
-  avatar: { width: 40, height: 40, borderRadius: 10, alignItems: 'center', justifyContent: 'center' },
-  avatarText: { fontSize: 18, fontWeight: '700' },
   cardBody: { flex: 1, gap: 2 },
   cardName: { fontSize: 16, fontWeight: '600' },
   cardUrl: { fontSize: 13 },

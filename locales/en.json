@@ -68,5 +68,9 @@
   },
   "language": {
     "system": "System default"
+  },
+  "search": {
+    "placeholder": "Search sites, accounts, memos",
+    "noResults": "No results found."
   }
 }

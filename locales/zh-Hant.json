@@ -68,5 +68,9 @@
   },
   "language": {
     "system": "跟隨系統"
+  },
+  "search": {
+    "placeholder": "搜尋網站、帳號、備註",
+    "noResults": "沒有找到結果。"
   }
 }

@@ -6,8 +6,10 @@ import { Alert, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'r
 
 import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
+import { SiteIcon } from '@/components/site-icon';
 import { listAccounts, type Account } from '@/features/accounts/api';
-import { deleteSite, getSite, type Site } from '@/features/sites/api';
+import { deleteSite, getSite, setSiteFavorite, type Site } from '@/features/sites/api';
+import { ensureFavicon } from '@/features/sites/favicon';
 import { displayDomain } from '@/features/sites/url';
 import { useTheme } from '@/theme/use-theme';
 
@@ -23,12 +25,19 @@ export default function SiteDetailScreen() {
   useFocusEffect(
     useCallback(() => {
       if (!id) return;
-      setSite(getSite(id));
+      const loaded = getSite(id);
+      setSite(loaded);
       setAccounts(listAccounts(id));
+      if (loaded) ensureFavicon(loaded);
     }, [id]),
   );
 
   if (!site) return <Screen edges={[]}>{null}</Screen>;
+
+  const toggleFavorite = () => {
+    setSiteFavorite(site.id, !site.favorite);
+    setSite(getSite(site.id));
+  };
 
   const openInBrowser = () => {
     // 브라우저 실행 직전 광고 금지 (CLAUDE.md §7) — 여기엔 앞으로도 광고를 끼우지 않는다
@@ -63,6 +72,16 @@ export default function SiteDetailScreen() {
           headerRight: () => (
             <View style={styles.headerRight}>
               <Pressable
+                onPress={toggleFavorite}
+                hitSlop={8}
+                accessibilityLabel={t('common.favorites')}>
+                <Ionicons
+                  name={site.favorite ? 'heart' : 'heart-outline'}
+                  size={21}
+                  color={site.favorite ? theme.primary : theme.icon}
+                />
+              </Pressable>
+              <Pressable
                 onPress={() => router.push(`/site-add?id=${site.id}`)}
                 hitSlop={8}
                 accessibilityLabel={t('site.edit')}>
@@ -77,11 +96,7 @@ export default function SiteDetailScreen() {
       />
       <ScrollView contentContainerStyle={styles.body}>
         <View style={styles.hero}>
-          <View style={[styles.avatar, { backgroundColor: theme.selected }]}>
-            <Text style={[styles.avatarText, { color: theme.primary }]}>
-              {site.name.charAt(0).toUpperCase()}
-            </Text>
-          </View>
+          <SiteIcon name={site.name} favicon={site.favicon} size={64} />
           <Text style={[styles.name, { color: theme.text }]}>{site.name}</Text>
           <Text style={[styles.domain, { color: theme.textMuted }]}>{displayDomain(site.url)}</Text>
         </View>

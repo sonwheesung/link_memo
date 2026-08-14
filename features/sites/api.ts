@@ -72,12 +72,18 @@ export function createSite(input: { name: string; url: string }): Site {
 }
 
 export function updateSite(id: string, input: { name: string; url: string }): void {
-  getDb().runSync('UPDATE sites SET name = ?, url = ?, updated_at = ? WHERE id = ?', [
-    input.name,
-    input.url,
-    Date.now(),
-    id,
-  ]);
+  const current = getSite(id);
+  // URL이 바뀌면 아이콘을 비워 다시 해석하게 한다 (docs/SITE_SYSTEM.md §2)
+  const clearFavicon = current !== null && current.url !== input.url;
+  getDb().runSync(
+    `UPDATE sites SET name = ?, url = ?, updated_at = ?${clearFavicon ? ', favicon = NULL' : ''} WHERE id = ?`,
+    [input.name, input.url, Date.now(), id],
+  );
+}
+
+export function updateSiteFavicon(id: string, favicon: string): void {
+  // 아이콘은 캐시 성격 — updated_at을 건드리지 않는다(목록 순서 불변)
+  getDb().runSync('UPDATE sites SET favicon = ? WHERE id = ?', [favicon, id]);
 }
 
 export function setSiteFavorite(id: string, favorite: boolean): void {

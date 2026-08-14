@@ -68,5 +68,9 @@
   },
   "language": {
     "system": "跟随系统"
+  },
+  "search": {
+    "placeholder": "搜索网站、账号、备注",
+    "noResults": "没有找到结果。"
   }
 }

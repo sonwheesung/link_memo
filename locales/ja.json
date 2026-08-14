@@ -68,5 +68,9 @@
   },
   "language": {
     "system": "システム設定に従う"
+  },
+  "search": {
+    "placeholder": "サイト・アカウント・メモを検索",
+    "noResults": "検索結果がありません。"
   }
 }

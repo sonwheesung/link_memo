@@ -68,5 +68,9 @@
   },
   "language": {
     "system": "시스템 설정 따르기"
+  },
+  "search": {
+    "placeholder": "사이트·계정·메모 검색",
+    "noResults": "검색 결과가 없어요."
   }
 }
