@@ -5,7 +5,8 @@
     "save": "儲存",
     "cancel": "取消",
     "delete": "刪除",
-    "favorites": "收藏"
+    "favorites": "收藏",
+    "ok": "確定"
   },
   "site": {
     "add": "新增網站",
@@ -50,7 +51,9 @@
   },
   "settings": {
     "theme": "主題",
-    "language": "語言"
+    "language": "語言",
+    "notice": "公告",
+    "inquiry": "聯絡我們"
   },
   "theme": {
     "current": "目前主題",
@@ -73,5 +76,34 @@
   "search": {
     "placeholder": "搜尋網站、帳號、備註",
     "noResults": "沒有找到結果。"
+  },
+  "notice": {
+    "empty": "目前沒有公告。"
+  },
+  "gate": {
+    "updateTitle": "需要更新",
+    "updateBody": "請更新至最新版本後繼續使用。",
+    "updateButton": "前往商店",
+    "updateNoStore": "請在商店中更新應用程式。"
+  },
+  "inquiry": {
+    "category": "類別",
+    "categories": {
+      "bug": "錯誤",
+      "suggestion": "建議",
+      "question": "疑問",
+      "etc": "其他"
+    },
+    "content": "內容",
+    "placeholder": "請告訴我們遇到的問題或想要的功能。",
+    "send": "傳送",
+    "sentTitle": "傳送成功",
+    "sentBody": "感謝您的寶貴意見！",
+    "failedTitle": "傳送失敗",
+    "failed": "發生問題，請稍後再試。",
+    "tooShort": "請至少輸入 {{min}} 個字元。",
+    "rateLimited": "目前提交較多，請明天再試。",
+    "offline": "目前為離線狀態，請連線後再試。",
+    "privacyNote": "您的意見將以匿名方式傳送，僅包含應用程式版本與平台資訊。"
   }
 }

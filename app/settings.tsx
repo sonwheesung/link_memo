@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Screen } from '@/components/screen';
+import { useUnreadNoticeCount } from '@/features/support/store';
 import { LANGUAGE_LABELS } from '@/lib/i18n';
 import { useLanguageStore } from '@/lib/language';
 import { useThemeStore } from '@/theme/store';
@@ -16,6 +17,7 @@ export default function SettingsScreen() {
   const theme = useTheme();
   const themeId = useThemeStore((s) => s.themeId);
   const languageOverride = useLanguageStore((s) => s.override);
+  const unreadNotices = useUnreadNoticeCount();
 
   const rows = [
     {
@@ -30,6 +32,19 @@ export default function SettingsScreen() {
       value: languageOverride ? LANGUAGE_LABELS[languageOverride] : t('language.system'),
       onPress: () => router.push('/language'),
     },
+    {
+      key: 'notice',
+      label: t('settings.notice'),
+      value: '',
+      badge: unreadNotices > 0, // 푸시가 없어 이 점이 통지의 전부다 (조각 승계)
+      onPress: () => router.push('/notice'),
+    },
+    {
+      key: 'inquiry',
+      label: t('settings.inquiry'),
+      value: '',
+      onPress: () => router.push('/inquiry'),
+    },
   ];
 
   return (
@@ -40,7 +55,12 @@ export default function SettingsScreen() {
             key={row.key}
             onPress={row.onPress}
             style={[styles.row, { backgroundColor: theme.card, borderColor: theme.border }]}>
-            <Text style={[styles.rowLabel, { color: theme.text }]}>{row.label}</Text>
+            <View style={styles.rowLeft}>
+              <Text style={[styles.rowLabel, { color: theme.text }]}>{row.label}</Text>
+              {'badge' in row && row.badge ? (
+                <View style={[styles.dot, { backgroundColor: theme.primary }]} />
+              ) : null}
+            </View>
             <View style={styles.rowRight}>
               <Text style={[styles.rowValue, { color: theme.textMuted }]}>{row.value}</Text>
               <Ionicons name="chevron-forward" size={16} color={theme.textMuted} />
@@ -63,7 +83,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 14,
   },
+  rowLeft: { flexDirection: 'row', alignItems: 'center', gap: 7 },
   rowLabel: { fontSize: 16, fontWeight: '500' },
+  dot: { width: 7, height: 7, borderRadius: 4 },
   rowRight: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   rowValue: { fontSize: 14 },
 });

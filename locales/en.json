@@ -5,7 +5,8 @@
     "save": "Save",
     "cancel": "Cancel",
     "delete": "Delete",
-    "favorites": "Favorites"
+    "favorites": "Favorites",
+    "ok": "OK"
   },
   "site": {
     "add": "Add Site",
@@ -50,7 +51,9 @@
   },
   "settings": {
     "theme": "Theme",
-    "language": "Language"
+    "language": "Language",
+    "notice": "Notices",
+    "inquiry": "Contact Us"
   },
   "theme": {
     "current": "Current",
@@ -73,5 +76,34 @@
   "search": {
     "placeholder": "Search sites, accounts, memos",
     "noResults": "No results found."
+  },
+  "notice": {
+    "empty": "No notices yet."
+  },
+  "gate": {
+    "updateTitle": "Update Required",
+    "updateBody": "Please update to the latest version to continue.",
+    "updateButton": "Open Store",
+    "updateNoStore": "Please update the app from the store."
+  },
+  "inquiry": {
+    "category": "Category",
+    "categories": {
+      "bug": "Bug",
+      "suggestion": "Suggestion",
+      "question": "Question",
+      "etc": "Other"
+    },
+    "content": "Message",
+    "placeholder": "Tell us what happened or what you'd like to see.",
+    "send": "Send",
+    "sentTitle": "Sent",
+    "sentBody": "Thank you! Your feedback has been received.",
+    "failedTitle": "Couldn't send",
+    "failed": "Something went wrong. Please try again later.",
+    "tooShort": "Please write at least {{min}} characters.",
+    "rateLimited": "Too many inquiries for now. Please try again tomorrow.",
+    "offline": "You're offline. Please try again when connected.",
+    "privacyNote": "Your message is sent anonymously. Only the app version and platform are included."
   }
 }

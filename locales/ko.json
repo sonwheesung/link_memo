@@ -5,7 +5,8 @@
     "save": "저장",
     "cancel": "취소",
     "delete": "삭제",
-    "favorites": "즐겨찾기"
+    "favorites": "즐겨찾기",
+    "ok": "확인"
   },
   "site": {
     "add": "사이트 추가",
@@ -50,7 +51,9 @@
   },
   "settings": {
     "theme": "테마",
-    "language": "언어"
+    "language": "언어",
+    "notice": "공지사항",
+    "inquiry": "문의하기"
   },
   "theme": {
     "current": "현재 테마",
@@ -73,5 +76,34 @@
   "search": {
     "placeholder": "사이트·계정·메모 검색",
     "noResults": "검색 결과가 없어요."
+  },
+  "notice": {
+    "empty": "등록된 공지가 없어요."
+  },
+  "gate": {
+    "updateTitle": "업데이트가 필요해요",
+    "updateBody": "계속 사용하려면 최신 버전으로 업데이트해 주세요.",
+    "updateButton": "스토어로 이동",
+    "updateNoStore": "스토어에서 앱을 업데이트해 주세요."
+  },
+  "inquiry": {
+    "category": "분류",
+    "categories": {
+      "bug": "버그",
+      "suggestion": "제안",
+      "question": "질문",
+      "etc": "기타"
+    },
+    "content": "내용",
+    "placeholder": "어떤 문제가 있었는지, 어떤 기능을 원하는지 알려주세요.",
+    "send": "보내기",
+    "sentTitle": "전송 완료",
+    "sentBody": "소중한 의견 감사합니다!",
+    "failedTitle": "전송 실패",
+    "failed": "문제가 발생했어요. 잠시 후 다시 시도해 주세요.",
+    "tooShort": "{{min}}자 이상 적어주세요.",
+    "rateLimited": "지금은 접수가 많아요. 내일 다시 시도해 주세요.",
+    "offline": "오프라인 상태예요. 연결 후 다시 시도해 주세요.",
+    "privacyNote": "문의는 익명으로 전송돼요. 앱 버전과 플랫폼 정보만 함께 전달됩니다."
   }
 }

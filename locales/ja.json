@@ -5,7 +5,8 @@
     "save": "保存",
     "cancel": "キャンセル",
     "delete": "削除",
-    "favorites": "お気に入り"
+    "favorites": "お気に入り",
+    "ok": "OK"
   },
   "site": {
     "add": "サイトを追加",
@@ -50,7 +51,9 @@
   },
   "settings": {
     "theme": "テーマ",
-    "language": "言語"
+    "language": "言語",
+    "notice": "お知らせ",
+    "inquiry": "お問い合わせ"
   },
   "theme": {
     "current": "現在のテーマ",
@@ -73,5 +76,34 @@
   "search": {
     "placeholder": "サイト・アカウント・メモを検索",
     "noResults": "検索結果がありません。"
+  },
+  "notice": {
+    "empty": "お知らせはまだありません。"
+  },
+  "gate": {
+    "updateTitle": "アップデートが必要です",
+    "updateBody": "続けるには最新バージョンへのアップデートが必要です。",
+    "updateButton": "ストアを開く",
+    "updateNoStore": "ストアからアプリをアップデートしてください。"
+  },
+  "inquiry": {
+    "category": "カテゴリ",
+    "categories": {
+      "bug": "バグ",
+      "suggestion": "提案",
+      "question": "質問",
+      "etc": "その他"
+    },
+    "content": "内容",
+    "placeholder": "問題の内容やご希望の機能をお聞かせください。",
+    "send": "送信",
+    "sentTitle": "送信完了",
+    "sentBody": "ご意見ありがとうございます！",
+    "failedTitle": "送信できませんでした",
+    "failed": "問題が発生しました。しばらくしてからもう一度お試しください。",
+    "tooShort": "{{min}}文字以上入力してください。",
+    "rateLimited": "現在受付が混み合っています。明日もう一度お試しください。",
+    "offline": "オフラインです。接続後にもう一度お試しください。",
+    "privacyNote": "お問い合わせは匿名で送信されます。アプリのバージョンとプラットフォーム情報のみが含まれます。"
   }
 }

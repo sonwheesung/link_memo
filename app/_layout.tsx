@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useTranslation } from 'react-i18next';
 import 'react-native-reanimated';
 
+import { BootGate } from '@/components/boot-gate';
 import { useTheme } from '@/theme/use-theme';
 
 export default function RootLayout() {
@@ -12,7 +13,7 @@ export default function RootLayout() {
   const theme = useTheme();
 
   return (
-    <>
+    <BootGate>
       <Stack
         screenOptions={{
           headerStyle: { backgroundColor: theme.surface },
@@ -28,8 +29,10 @@ export default function RootLayout() {
         <Stack.Screen name="settings" options={{ title: t('common.settings') }} />
         <Stack.Screen name="theme" options={{ title: t('settings.theme') }} />
         <Stack.Screen name="language" options={{ title: t('settings.language') }} />
+        <Stack.Screen name="notice" options={{ title: t('settings.notice') }} />
+        <Stack.Screen name="inquiry" options={{ title: t('settings.inquiry') }} />
       </Stack>
       <StatusBar style={theme.isDark ? 'light' : 'dark'} />
-    </>
+    </BootGate>
   );
 }

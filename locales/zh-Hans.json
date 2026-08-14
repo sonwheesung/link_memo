@@ -5,7 +5,8 @@
     "save": "保存",
     "cancel": "取消",
     "delete": "删除",
-    "favorites": "收藏"
+    "favorites": "收藏",
+    "ok": "确定"
   },
   "site": {
     "add": "添加网站",
@@ -50,7 +51,9 @@
   },
   "settings": {
     "theme": "主题",
-    "language": "语言"
+    "language": "语言",
+    "notice": "公告",
+    "inquiry": "联系我们"
   },
   "theme": {
     "current": "当前主题",
@@ -73,5 +76,34 @@
   "search": {
     "placeholder": "搜索网站、账号、备注",
     "noResults": "没有找到结果。"
+  },
+  "notice": {
+    "empty": "暂无公告。"
+  },
+  "gate": {
+    "updateTitle": "需要更新",
+    "updateBody": "请更新到最新版本后继续使用。",
+    "updateButton": "前往商店",
+    "updateNoStore": "请在商店中更新应用。"
+  },
+  "inquiry": {
+    "category": "类别",
+    "categories": {
+      "bug": "错误",
+      "suggestion": "建议",
+      "question": "疑问",
+      "etc": "其他"
+    },
+    "content": "内容",
+    "placeholder": "请告诉我们遇到的问题或想要的功能。",
+    "send": "发送",
+    "sentTitle": "发送成功",
+    "sentBody": "感谢您的宝贵意见！",
+    "failedTitle": "发送失败",
+    "failed": "出现问题，请稍后重试。",
+    "tooShort": "请至少输入 {{min}} 个字符。",
+    "rateLimited": "当前提交较多，请明天再试。",
+    "offline": "当前处于离线状态，请联网后重试。",
+    "privacyNote": "您的反馈将匿名发送，仅包含应用版本和平台信息。"
   }
 }

@@ -19,7 +19,7 @@
 | [`THEME_SYSTEM.md`](./THEME_SYSTEM.md) | 테마 10종 — 토큰 세트·미리보기 UX·저장 | ✅ |
 | [`design/theme-mockups-10.png`](./design/theme-mockups-10.png) | **테마 10종 화면 시안 정본** (2026-08-14 사용자 제공) — 팔레트 추출 기준 | ✅ |
 | [`I18N_SYSTEM.md`](./I18N_SYSTEM.md) | 다국어 — en 기본·5개 언어·키 규약·언어 추가 절차 | ✅ |
-| `DATABASE.md` | expo-sqlite 스키마·마이그레이션 규약 (개요는 CLAUDE.md §5) | ❌ 미작성(스캐폴드 시) |
+| [`DATABASE.md`](./DATABASE.md) | expo-sqlite 스키마·마이그레이션 규약 (개요는 CLAUDE.md §5) | ✅ |
 | `UI_GUIDE.md` | 공통 컴포넌트·여백·타이포 사용법 | ❌ 미작성 |
 | `CHANGELOG.md` | 릴리스 변경 이력 | ❌ 미작성(첫 빌드 시점부터) |
 
@@ -45,22 +45,22 @@
 | 즐겨찾기(상세 하트 토글 + 홈 가로 섹션) | ✅ | 2026-08-14 Phase 3 — 전용 화면 없음(단일 화면 구조) |
 | 화면 골격 | ✅ | 2026-08-14 Phase 0. ~~4탭~~→~~3탭~~→**단일 화면(네비 없음) + 홈 우상단 [🔍][＋][⚙]**(같은 날 사용자 재정정). 화면은 전부 골격, `t()` 키 |
 | 테마 10종 + 미리보기 | ✅ | 2026-08-14 Phase 1 — 토큰 19종·zustand persist·미니어처 그리드. [`THEME_SYSTEM.md`](./THEME_SYSTEM.md) |
-| 다국어 5종 | ✅ | 2026-08-14 Phase 4 — 47키 × 5언어 · `check:i18n` · 설정→언어 수동 변경. ⚠ ja·zh 원어민 검수 전 |
+| 다국어 5종 | ✅ | 2026-08-14 Phase 4 — 5언어 전 키 동기(`check:i18n`이 개수 정본) · 설정→언어 수동 변경. ⚠ ja·zh 원어민 검수 전 |
 | 하단 배너 광고 | ❌ | 네비게이션 위. dev는 테스트 단위만 |
 | **App Open 광고(콜드 스타트 · 쿨타임 3시간)** | ❌ | ~~홈 진입 전면~~ → 포맷 정정(2026-08-14, 정책 위반 회피). 금지 순간 목록 준수 |
 | UMP 동의 폼(EEA 포함 출시) | ❌ | 2026-08-14 확정(MONETIZATION §3) |
 | Remove Ads 구매 + Restore Purchases | ❌ | **RevenueCat 익명 모드** 확정(2026-08-14) |
-| 공지·점검·강제업데이트(bootstrap) | ❌ | 실패해도 앱을 막지 않는다 |
-| 문의하기(익명) | ❌ | common_server v1 경로 |
-| 데이터 손실 안내 문구 | ❌ | CLAUDE.md §6 |
+| 공지·점검·강제업데이트(bootstrap) | ✅ | 2026-08-14 Phase 5 — 실패 시 통과, 차단 화면 출구 포함. ⏸ latest 소프트 안내 |
+| 문의하기(익명) | ✅ | 2026-08-14 Phase 5 — 실패 시 본문 유지, 익명 고지 문구 포함 |
+| 데이터 손실 안내 문구 | ✅ | 2026-08-14 — 홈 빈 화면에 표시(CLAUDE.md §6) |
 
 ### 서버·외부 (LinkMemo 밖 선행 작업)
 
 | 영역 | 상태 | 비고 |
 |---|---|---|
-| common_server `apps`에 `linkmemo` 등록 | ❌ | 확인: `bootstrap?app=linkmemo` 200 |
-| common_server SDK 복사(`lib/common-server/`) | ❌ | 복사본에 SDK_VERSION 주석 |
-| 디스코드 문의 웹훅 env + 재배포 | ❌ | `DISCORD_TICKET_WEBHOOK_URL_LINKMEMO` |
+| common_server `apps`에 `linkmemo` 등록 | ✅ | 2026-08-14 — `bootstrap?app=linkmemo` **200 실측** |
+| common_server SDK 복사(`lib/common-server/`) | ✅ | 2026-08-14 — SDK_VERSION 2026-08-10 |
+| 디스코드 문의 웹훅 env + 재배포 | ⏸ | 사용자 웹훅 URL 필요 — 없으면 알림만 없고 접수는 된다 |
 | AdMob 앱·광고단위(배너 1 · **App Open** 1) + GDPR 메시지 설정 | ❌ | 스토어 미출시 상태의 "게재 제한"은 정상 |
 | RevenueCat 프로젝트 생성(익명 모드) | ❌ | 웹훅·서버 연동 없음 |
 | 스토어 Remove Ads 상품 등록 | ❌ | 비소모성 1상품 |

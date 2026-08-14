@@ -103,11 +103,12 @@ LinkMemo 전용 서버: 없음 (만들지 않는다)
 
 | 항목 | 상태 |
 |---|---|
-| `apps`에 `linkmemo` 등록 | ❌ |
-| SDK 복사 | ❌ |
-| 부팅 게이트 | ❌ |
-| 문의 화면 | ❌ |
-| 디스코드 웹훅 env | ❌ |
+| `apps`에 `linkmemo` 등록 | ✅ 2026-08-14 — seed 실행, **프로덕션 `bootstrap?app=linkmemo` → HTTP 200 실측** (`{"ok":true,"maintenance":{"active":false},...}`) |
+| SDK 복사 | ✅ 2026-08-14 — `lib/common-server/{index,types}.ts`, SDK_VERSION 2026-08-10 주석. 수정 금지, 갱신은 재복사 |
+| 부팅 게이트 | ✅ 2026-08-14 — `components/boot-gate.tsx`. 실패 시 통과, 점검·강제업데이트 차단(출구 포함). ⏸ latest 소프트 안내는 미구현 |
+| 공지 화면 + 읽음 배지 | ✅ 2026-08-14 — `app/notice.tsx`, 읽음은 로컬(AsyncStorage). 배지는 설정 행 점 하나(푸시 없음 — 조각 승계) |
+| 문의 화면(익명) | ✅ 2026-08-14 — `app/inquiry.tsx`, 실패 시 본문 유지·사유별 안내 |
+| 디스코드 웹훅 env | ⏸ 사용자의 웹훅 URL 필요 — `DISCORD_TICKET_WEBHOOK_URL_LINKMEMO` + 재배포. 없으면 기본 채널 폴백/무알림(문의 자체는 접수됨) |
 
 ## 7. 열린 질문
 
