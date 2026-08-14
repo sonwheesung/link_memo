@@ -43,8 +43,9 @@
 | 민감한 메모(전체 숨김 + 눈 아이콘) | ❌ | 숨김 ≠ 암호화 표기 규칙(CLAUDE.md §8) |
 | 검색(이름·URL·계정 이름·ID·메모) | ❌ | **입구는 홈 검색바 하나**(2026-08-14) — 네비는 4탭(Home·+·Favorites·Settings) |
 | 즐겨찾기(등록/해제 + 탭) | ❌ | |
+| 하단 네비 4탭 골격(+는 site-add 모달 동작) | ✅ | 2026-08-14 Phase 0 — 화면은 전부 골격, `t()` 키로 작성 |
 | 테마 10종 + 미리보기 | ❌ | [`THEME_SYSTEM.md`](./THEME_SYSTEM.md) |
-| 다국어 5종 | ❌ | [`I18N_SYSTEM.md`](./I18N_SYSTEM.md) |
+| 다국어 5종 | ⏸ 뼈대 | en·ko 뼈대 ✅(2026-08-14) · ja·zh-Hans·zh-Hant는 Phase 4 |
 | 하단 배너 광고 | ❌ | 네비게이션 위. dev는 테스트 단위만 |
 | **App Open 광고(콜드 스타트 · 쿨타임 3시간)** | ❌ | ~~홈 진입 전면~~ → 포맷 정정(2026-08-14, 정책 위반 회피). 금지 순간 목록 준수 |
 | UMP 동의 폼(EEA 포함 출시) | ❌ | 2026-08-14 확정(MONETIZATION §3) |
@@ -78,6 +79,13 @@ npm install                    # 의존성
 npm run typecheck              # tsc --noEmit
 npm run lint                   # expo lint
 # npm run check:i18n           # ⏭ i18n 착수 시 조각 스크립트 이식
+```
+
+**번들 컴파일 확인**(구현 완료 선언 전 필수 — 2026-08-14 규약): Metro 기동 상태에서
+
+```bash
+curl -s -o /dev/null -w "%{http_code}" "http://localhost:8086/node_modules/expo-router/entry.bundle?platform=android&dev=true"
+# 200이면 런타임 모듈 에러 없이 번들 생성. 패키지 설치·파일 삭제 후에는 Metro를 --clear로 재시작(조각 실증)
 ```
 
 **Metro 포트는 8086 고정**(2026-08-14 사용자 결정 — `package.json` scripts에 반영):

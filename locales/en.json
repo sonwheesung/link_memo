@@ -1,0 +1,25 @@
+{
+  "common": {
+    "home": "Home",
+    "add": "Add",
+    "favorites": "Favorites",
+    "settings": "Settings",
+    "search": "Search"
+  },
+  "site": {
+    "add": "Add Site"
+  },
+  "home": {
+    "emptyTitle": "Save links. Keep what matters.",
+    "emptyBody": "Add your favorite websites and keep accounts and notes together in one place."
+  },
+  "data": {
+    "notice": "Your data is stored only on this device. If you delete the app or change devices, your data may be lost."
+  },
+  "favorites": {
+    "empty": "No favorites yet."
+  },
+  "settings": {
+    "title": "Settings"
+  }
+}

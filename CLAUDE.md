@@ -286,7 +286,7 @@ Neon Cyber · Carbon Gray · Pastel Lavender · Yellow Point · Ocean Deep
 | 개발 실행 | **dev build** (`npx expo run:android`) — 광고 SDK가 네이티브 모듈이라 **Expo Go 불가**(조각 실증) | ❌ |
 | 결제 | react-native-purchases (**RevenueCat 익명 모드**) — 비소모성 1상품(2026-08-14 판단, §14 #2) | ❌ |
 | 브라우저 열기 | expo-linking (`Linking.openURL`) — 외부 기본 브라우저 | ❌ |
-| 다국어 | i18next · react-i18next · expo-localization | ❌ |
+| 다국어 | i18next · react-i18next · expo-localization | ✅ 뼈대(en·ko, 2026-08-14) — ja·zh 2종은 Phase 4 |
 | 날짜 | dayjs | ❌ |
 | 백엔드 | **없음.** 공지·문의만 common_server SDK 복사(`lib/common-server/`) | ❌ |
 | 배포 | Expo EAS | ❌ |

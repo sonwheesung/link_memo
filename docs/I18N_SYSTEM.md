@@ -7,8 +7,8 @@
 
 | 영역 | 상태 |
 |---|---|
-| i18next · react-i18next · expo-localization 세팅 | ❌ |
-| Phase 1 언어 5종 리소스 | ❌ |
+| i18next · react-i18next · expo-localization 세팅 | ✅ 2026-08-14 — `lib/i18n.ts`, 기기 언어 감지 + 영어 폴백 |
+| Phase 1 언어 5종 리소스 | ⏸ en·ko만(`locales/`) — ja·zh-Hans·zh-Hant는 PLAN Phase 4 |
 | 키 검사 스크립트(`check:i18n` 승계) | ❌ |
 
 ---
