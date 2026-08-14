@@ -19,6 +19,9 @@
   "favorites": {
     "empty": "아직 즐겨찾기가 없어요."
   },
+  "ads": {
+    "bannerPlaceholder": "배너 광고 영역"
+  },
   "settings": {
     "title": "설정",
     "theme": "테마"

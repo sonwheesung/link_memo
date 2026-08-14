@@ -19,6 +19,9 @@
   "favorites": {
     "empty": "No favorites yet."
   },
+  "ads": {
+    "bannerPlaceholder": "Banner ad area"
+  },
   "settings": {
     "title": "Settings",
     "theme": "Theme"

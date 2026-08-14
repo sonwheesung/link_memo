@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { AdBannerPlaceholder } from '@/components/ad-banner-placeholder';
 import { Screen } from '@/components/screen';
 import { useTheme } from '@/theme/use-theme';
 
@@ -13,7 +14,7 @@ export default function HomeScreen() {
   const theme = useTheme();
 
   return (
-    <Screen>
+    <Screen footer={<AdBannerPlaceholder />}>
       <View style={styles.header}>
         <Text style={[styles.brand, { color: theme.text }]}>LinkMemo</Text>
         <View style={styles.headerActions}>
