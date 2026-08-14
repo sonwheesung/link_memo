@@ -121,7 +121,7 @@ LinkMemo 전용 서버: 없음 (만들지 않는다)
 | 문의 화면 | ✅ 2026-08-14 — `app/inquiry.tsx`, 전송 전 기기 세션 확보(실패 시 익명 폴백)·본문 유지·사유별 안내 |
 | **기기 subject(문의 귀속)** | ✅ 2026-08-14 — 서버 `POST /v1/devices` 신설·배포, **프로덕션 E2E 실측**(등록→토큰→문의 귀속→mine 200, 잘못된 deviceId 400). 앱은 SecureStore에 deviceId·세션 보관(`features/support/server.ts`) |
 | 문의 내역 화면(상태·답변) | ✅ 2026-08-14 — `app/inquiries.tsx`, 상태 배지(접수됨/답변 완료/해결됨) + 답변 박스 + 기기 연결 한계 고지 |
-| 디스코드 웹훅 env | ⏸ 사용자의 웹훅 URL 필요 — `DISCORD_TICKET_WEBHOOK_URL_LINKMEMO` + 재배포. 없으면 기본 채널 폴백/무알림(문의 자체는 접수됨) |
+| 디스코드 웹훅 env | ✅ 2026-08-14 — `DISCORD_TICKET_WEBHOOK_URL_LINKMEMO` 등록 + 재배포 + 테스트 문의로 발사 확인(채널 수신은 사용자 확인). ⚠ 등록 중 `.env.local` 마지막 줄 무개행 + append로 SESSION_JWT_SECRET이 오염·부분 노출돼 **즉시 회전**(2026-08-14) — 기존 세션 토큰 전부 무효화, 기기 토큰은 재등록으로 자동 복구 |
 
 ## 7. 열린 질문
 
