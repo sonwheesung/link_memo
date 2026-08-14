@@ -36,7 +36,7 @@
 | Expo 부트(SDK 54 · expo-router · TS strict) | ✅ | 2026-08-14 스캐폴드 — expo ~54.0.35 · RN 0.81.5 · React 19.1.0(조각과 동일 조합). typecheck·lint 통과, Metro **:8086** 기동 확인 |
 | expo-sqlite 스키마(Site·Account) | ✅ | 2026-08-14 Phase 2 — [`DATABASE.md`](./DATABASE.md). user_version 마이그레이션·FK CASCADE |
 | Home(전체 목록 + 계정 수 배지 + 빈 화면 안내) | ✅ | 2026-08-14 Phase 2 — 즐겨찾기 섹션은 Phase 3 |
-| 사이트 추가/수정/삭제 (URL만 필수 · 이름 자동 제안) | ✅ | 2026-08-14 Phase 2 — 도메인 파싱 제안 + https 보정 + 삭제 확인(계정 수 명시) |
+| 사이트 추가/수정/삭제 (URL만 필수 · 이름 자동 제안) | ✅ | 2026-08-14 Phase 2 — 도메인 파싱 제안 + https 보정 + 삭제 확인(계정 수 명시) + 중복 URL 차단(2026-08-14) |
 | 사이트 아이콘 | ✅ | 2026-08-14 Phase 3 — HTML link 파싱→URL 해석(사이트 직접 fetch만) + expo-image 디스크 캐시 + 이니셜 폴백 |
 | 사이트 상세 + Open in Browser | ✅ | 2026-08-14 Phase 2 — 외부 기본 브라우저, 실패 알림. WebView 금지 |
 | 계정 CRUD (사이트당 N개 · 전 필드 선택) | ✅ | 2026-08-14 Phase 2 — 빈 필드는 NULL 저장 |

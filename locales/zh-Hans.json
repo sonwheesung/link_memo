@@ -14,6 +14,7 @@
     "namePlaceholder": "网站名称（可选）",
     "url": "URL",
     "invalidUrl": "请输入有效的网址。",
+    "duplicateUrl": "该网址已保存。",
     "openInBrowser": "在浏览器中打开",
     "openFailed": "无法打开此网址。",
     "deleteTitle": "删除网站",

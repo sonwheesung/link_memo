@@ -14,6 +14,7 @@
     "namePlaceholder": "網站名稱（選填）",
     "url": "URL",
     "invalidUrl": "請輸入有效的網址。",
+    "duplicateUrl": "該網址已儲存。",
     "openInBrowser": "在瀏覽器中開啟",
     "openFailed": "無法開啟此網址。",
     "deleteTitle": "刪除網站",

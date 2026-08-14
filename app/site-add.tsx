@@ -6,7 +6,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
-import { createSite, getSite, updateSite } from '@/features/sites/api';
+import { createSite, findSiteByUrl, getSite, updateSite } from '@/features/sites/api';
 import { normalizeUrl, suggestSiteName } from '@/features/sites/url';
 
 // 사이트 추가 + 수정을 한 화면이 겸한다 (/site-add?id=) — 조각의 write?id 패턴 승계
@@ -26,6 +26,11 @@ export default function SiteAddScreen() {
     const normalized = normalizeUrl(url);
     if (!normalized) {
       setUrlError(t('site.invalidUrl'));
+      return;
+    }
+    // 같은 URL이 이미 저장돼 있으면 거부 — 수정 시 자기 자신은 제외 (docs/SITE_SYSTEM.md §2)
+    if (findSiteByUrl(normalized, editing?.id)) {
+      setUrlError(t('site.duplicateUrl'));
       return;
     }
     // 이름 미입력이면 자동 제안값을 저장 (URL만 필수 — CLAUDE.md §5)

@@ -14,6 +14,7 @@
     "namePlaceholder": "사이트 이름 (선택)",
     "url": "URL",
     "invalidUrl": "올바른 주소를 입력해 주세요.",
+    "duplicateUrl": "이미 저장된 주소예요.",
     "openInBrowser": "브라우저에서 열기",
     "openFailed": "이 주소를 열 수 없어요.",
     "deleteTitle": "사이트 삭제",

@@ -53,6 +53,15 @@ export function getSite(id: string): Site | null {
   return row ? toSite(row) : null;
 }
 
+// 중복 URL 차단용 — 정규화된 URL의 완전 일치 조회. 수정 시 자기 자신은 excludeId로 제외
+// (docs/SITE_SYSTEM.md §2 URL 정규화 규칙)
+export function findSiteByUrl(url: string, excludeId?: string): Site | null {
+  const row = excludeId
+    ? getDb().getFirstSync<SiteRow>('SELECT * FROM sites WHERE url = ? AND id != ?', [url, excludeId])
+    : getDb().getFirstSync<SiteRow>('SELECT * FROM sites WHERE url = ?', [url]);
+  return row ? toSite(row) : null;
+}
+
 export function createSite(input: { name: string; url: string }): Site {
   const now = Date.now();
   const site: Site = {

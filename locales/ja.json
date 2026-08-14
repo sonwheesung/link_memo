@@ -14,6 +14,7 @@
     "namePlaceholder": "サイト名（任意）",
     "url": "URL",
     "invalidUrl": "有効なURLを入力してください。",
+    "duplicateUrl": "このURLはすでに保存されています。",
     "openInBrowser": "ブラウザで開く",
     "openFailed": "このURLを開けませんでした。",
     "deleteTitle": "サイトを削除",
