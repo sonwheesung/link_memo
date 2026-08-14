@@ -104,6 +104,15 @@
     "tooShort": "请至少输入 {{min}} 个字符。",
     "rateLimited": "当前提交较多，请明天再试。",
     "offline": "当前处于离线状态，请联网后重试。",
-    "privacyNote": "您的反馈将匿名发送，仅包含应用版本和平台信息。"
+    "privacyNote": "您的反馈将匿名发送，仅包含应用版本和平台信息。",
+    "historyTitle": "我的反馈",
+    "historyEmpty": "还没有发送过反馈。",
+    "historyNote": "反馈与此设备关联。如果删除应用或更换设备，之前的反馈将不再显示在这里。",
+    "replyLabel": "回复",
+    "status": {
+      "open": "已收到",
+      "replied": "已回复",
+      "resolved": "已解决"
+    }
   }
 }

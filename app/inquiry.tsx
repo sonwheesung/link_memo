@@ -6,7 +6,7 @@ import { Alert, Pressable, ScrollView, StyleSheet, Text } from 'react-native';
 import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
-import { commonServer } from '@/features/support/server';
+import { commonServer, ensureDeviceSession } from '@/features/support/server';
 import { CONTENT_MAX, CONTENT_MIN, type SupportCategory } from '@/lib/common-server';
 import { useTheme } from '@/theme/use-theme';
 
@@ -23,6 +23,8 @@ export default function InquiryScreen() {
 
   const send = async () => {
     setSending(true);
+    // 기기 세션을 먼저 확보해 문의를 귀속시킨다 — 실패해도 익명으로 전송은 된다(내역에만 안 남는다)
+    await ensureDeviceSession();
     const r = await commonServer.sendInquiry(category, content);
     setSending(false);
     if (r.ok) {

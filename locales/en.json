@@ -104,6 +104,15 @@
     "tooShort": "Please write at least {{min}} characters.",
     "rateLimited": "Too many inquiries for now. Please try again tomorrow.",
     "offline": "You're offline. Please try again when connected.",
-    "privacyNote": "Your message is sent anonymously. Only the app version and platform are included."
+    "privacyNote": "Your message is sent anonymously. Only the app version and platform are included.",
+    "historyTitle": "My Inquiries",
+    "historyEmpty": "No inquiries yet.",
+    "historyNote": "Inquiries are linked to this device. If you delete the app or change devices, past inquiries will no longer appear here.",
+    "replyLabel": "Reply",
+    "status": {
+      "open": "Received",
+      "replied": "Replied",
+      "resolved": "Resolved"
+    }
   }
 }

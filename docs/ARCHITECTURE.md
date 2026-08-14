@@ -53,11 +53,22 @@ LinkMemo 전용 서버: 없음 (만들지 않는다)
 | 문의 | common_server DB | 익명. platform·appVersion만 동봉 |
 | 공지 읽음 여부 | 기기 로컬(AsyncStorage) | 서버에 읽음 테이블을 두지 않는다(common 규약) |
 
-## 4. 신원 — 없다
+## 4. 신원 — 로그인은 없다, 기기 토큰은 있다 (2026-08-14 정정)
 
-- common_server의 subjects·토큰(Phase 7)·서버 엔타이틀먼트(Phase 9)를 **쓰지 않는다.**
-- 문의는 v1 익명 경로 — 서버조차 누가 보냈는지 모른다(개인정보 최소수집). 답변 확인 화면도 없다
-  (콘솔의 reply는 운영자 내부 메모 성격 — common ONBOARDING §6 주의사항).
+- ~~subjects·토큰을 쓰지 않는다 · 문의는 완전 익명 단방향~~ → **기기 subject로 정정**(사용자 요구:
+  문의 목록·답변·상태 표시). 흐름:
+
+```
+앱 최초 문의 진입 → UUID 생성(SecureStore 보관, 1회)
+ → POST /api/v1/devices { app, deviceId } → subject(kind='device') + 서명 토큰
+ → SDK가 세션으로 보관 → 이후 문의에 자동 귀속 → GET /api/v1/tickets/mine = 목록·답변·상태
+```
+
+- **여전히 계정이 아니다**: 이메일·이름·비밀번호 없음, 가입 절차 없음(사용자는 아무것도 입력하지 않는다).
+  개인정보 최소수집 원칙 유지 — 서버가 아는 것은 무작위 UUID뿐.
+- **한계**(화면에 고지): 앱 삭제·기기 변경 시 deviceId가 사라져 이전 문의 내역과 연결이 끊긴다.
+- 사칭 방어: deviceId가 곧 열쇠(무작위 UUID라 추측 불가) + 발급 라우트 IP 레이트리밋.
+  구글 로그인(user subject)은 여전히 쓰지 않는다 — 필요해지면 device→user 승격이 설계상 가능(PLAN §2).
 - ⏭ 나중에 로그인을 붙이면: 탈퇴 경로 + 웹 삭제 URL이 Play 정책상 세트로 필요해진다(조각 §4).
   그 전까지는 "계정 없음"이 심사 부담을 통째로 없애준다.
 
@@ -107,7 +118,9 @@ LinkMemo 전용 서버: 없음 (만들지 않는다)
 | SDK 복사 | ✅ 2026-08-14 — `lib/common-server/{index,types}.ts`, SDK_VERSION 2026-08-10 주석. 수정 금지, 갱신은 재복사 |
 | 부팅 게이트 | ✅ 2026-08-14 — `components/boot-gate.tsx`. 실패 시 통과, 점검·강제업데이트 차단(출구 포함). ⏸ latest 소프트 안내는 미구현 |
 | 공지 화면 + 읽음 배지 | ✅ 2026-08-14 — `app/notice.tsx`, 읽음은 로컬(AsyncStorage). 배지는 설정 행 점 하나(푸시 없음 — 조각 승계) |
-| 문의 화면(익명) | ✅ 2026-08-14 — `app/inquiry.tsx`, 실패 시 본문 유지·사유별 안내 |
+| 문의 화면 | ✅ 2026-08-14 — `app/inquiry.tsx`, 전송 전 기기 세션 확보(실패 시 익명 폴백)·본문 유지·사유별 안내 |
+| **기기 subject(문의 귀속)** | ✅ 2026-08-14 — 서버 `POST /v1/devices` 신설·배포, **프로덕션 E2E 실측**(등록→토큰→문의 귀속→mine 200, 잘못된 deviceId 400). 앱은 SecureStore에 deviceId·세션 보관(`features/support/server.ts`) |
+| 문의 내역 화면(상태·답변) | ✅ 2026-08-14 — `app/inquiries.tsx`, 상태 배지(접수됨/답변 완료/해결됨) + 답변 박스 + 기기 연결 한계 고지 |
 | 디스코드 웹훅 env | ⏸ 사용자의 웹훅 URL 필요 — `DISCORD_TICKET_WEBHOOK_URL_LINKMEMO` + 재배포. 없으면 기본 채널 폴백/무알림(문의 자체는 접수됨) |
 
 ## 7. 열린 질문

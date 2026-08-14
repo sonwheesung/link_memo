@@ -31,6 +31,7 @@ export default function RootLayout() {
         <Stack.Screen name="language" options={{ title: t('settings.language') }} />
         <Stack.Screen name="notice" options={{ title: t('settings.notice') }} />
         <Stack.Screen name="inquiry" options={{ title: t('settings.inquiry') }} />
+        <Stack.Screen name="inquiries" options={{ title: t('inquiry.historyTitle') }} />
       </Stack>
       <StatusBar style={theme.isDark ? 'light' : 'dark'} />
     </BootGate>

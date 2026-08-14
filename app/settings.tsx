@@ -45,6 +45,12 @@ export default function SettingsScreen() {
       value: '',
       onPress: () => router.push('/inquiry'),
     },
+    {
+      key: 'inquiries',
+      label: t('inquiry.historyTitle'),
+      value: '',
+      onPress: () => router.push('/inquiries'),
+    },
   ];
 
   return (

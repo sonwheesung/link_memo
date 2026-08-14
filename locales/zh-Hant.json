@@ -104,6 +104,15 @@
     "tooShort": "請至少輸入 {{min}} 個字元。",
     "rateLimited": "目前提交較多，請明天再試。",
     "offline": "目前為離線狀態，請連線後再試。",
-    "privacyNote": "您的意見將以匿名方式傳送，僅包含應用程式版本與平台資訊。"
+    "privacyNote": "您的意見將以匿名方式傳送，僅包含應用程式版本與平台資訊。",
+    "historyTitle": "我的回饋",
+    "historyEmpty": "還沒有送出過回饋。",
+    "historyNote": "回饋與此裝置關聯。若刪除應用程式或更換裝置，先前的回饋將不再顯示於此。",
+    "replyLabel": "回覆",
+    "status": {
+      "open": "已收到",
+      "replied": "已回覆",
+      "resolved": "已解決"
+    }
   }
 }
