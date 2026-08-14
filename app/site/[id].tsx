@@ -19,7 +19,6 @@ export default function SiteDetailScreen() {
 
   const [site, setSite] = useState<Site | null>(null);
   const [accounts, setAccounts] = useState<Account[]>([]);
-  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
 
   useFocusEffect(
     useCallback(() => {
@@ -99,12 +98,10 @@ export default function SiteDetailScreen() {
 
         {accounts.map((account) => {
           const title = account.name ?? account.username ?? t('account.unnamed');
-          const showMemo = account.memo !== null;
-          const hidden = account.memoSensitive && !revealed[account.id];
           return (
             <Pressable
               key={account.id}
-              onPress={() => router.push(`/account-form?siteId=${site.id}&id=${account.id}`)}
+              onPress={() => router.push({ pathname: '/account/[id]', params: { id: account.id } })}
               style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
               <Text style={[styles.cardTitle, { color: theme.text }]}>{title}</Text>
               {account.username !== null ? (
@@ -115,31 +112,25 @@ export default function SiteDetailScreen() {
                   <Text style={[styles.fieldValue, { color: theme.text }]}>{account.username}</Text>
                 </View>
               ) : null}
-              {showMemo ? (
-                <View style={styles.fieldRow}>
-                  <Text style={[styles.fieldLabel, { color: theme.textMuted }]}>
-                    {account.memoSensitive ? `🔒 ${t('account.memo')}` : t('account.memo')}
-                  </Text>
-                  <View style={styles.memoRow}>
-                    <Text style={[styles.fieldValue, { color: theme.text }]} numberOfLines={hidden ? 1 : 0}>
-                      {hidden ? '••••••••••••' : account.memo}
+              {account.memo !== null ? (
+                account.memoSensitive ? (
+                  // 카드에서는 상태 라벨만 — 내용 확인은 계정 상세에서 (2026-08-14 사용자 피드백)
+                  <View style={styles.hiddenRow}>
+                    <Ionicons name="lock-closed-outline" size={13} color={theme.textMuted} />
+                    <Text style={[styles.hiddenLabel, { color: theme.textMuted }]}>
+                      {t('account.hiddenMemo')}
                     </Text>
-                    {account.memoSensitive ? (
-                      <Pressable
-                        onPress={() =>
-                          setRevealed((r) => ({ ...r, [account.id]: !r[account.id] }))
-                        }
-                        hitSlop={8}
-                        accessibilityLabel={t('account.toggleMemo')}>
-                        <Ionicons
-                          name={hidden ? 'eye-outline' : 'eye-off-outline'}
-                          size={18}
-                          color={theme.textMuted}
-                        />
-                      </Pressable>
-                    ) : null}
                   </View>
-                </View>
+                ) : (
+                  <View style={styles.fieldRow}>
+                    <Text style={[styles.fieldLabel, { color: theme.textMuted }]}>
+                      {t('account.memo')}
+                    </Text>
+                    <Text style={[styles.fieldValue, { color: theme.text }]} numberOfLines={2}>
+                      {account.memo}
+                    </Text>
+                  </View>
+                )
               ) : null}
             </Pressable>
           );
@@ -170,7 +161,8 @@ const styles = StyleSheet.create({
   fieldRow: { gap: 2 },
   fieldLabel: { fontSize: 12 },
   fieldValue: { fontSize: 15, flexShrink: 1 },
-  memoRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
+  hiddenRow: { flexDirection: 'row', alignItems: 'center', gap: 5 },
+  hiddenLabel: { fontSize: 13, fontStyle: 'italic' },
   addAccount: {
     flexDirection: 'row',
     alignItems: 'center',

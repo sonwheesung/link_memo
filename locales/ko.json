@@ -29,6 +29,7 @@
     "memo": "메모",
     "sensitive": "메모 숨기기 (민감한 메모)",
     "toggleMemo": "메모 표시 전환",
+    "hiddenMemo": "숨겨진 메모",
     "unnamed": "계정",
     "deleteTitle": "계정 삭제",
     "deleteBody": "이 계정을 삭제할까요?"

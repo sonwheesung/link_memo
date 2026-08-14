@@ -29,6 +29,7 @@
     "memo": "备注",
     "sensitive": "隐藏备注（敏感）",
     "toggleMemo": "切换备注显示",
+    "hiddenMemo": "已隐藏的备注",
     "unnamed": "账号",
     "deleteTitle": "删除账号",
     "deleteBody": "确定删除此账号吗？"

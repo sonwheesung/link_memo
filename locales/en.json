@@ -29,6 +29,7 @@
     "memo": "Memo",
     "sensitive": "Hide memo (sensitive)",
     "toggleMemo": "Toggle memo visibility",
+    "hiddenMemo": "Hidden memo",
     "unnamed": "Account",
     "deleteTitle": "Delete Account",
     "deleteBody": "Delete this account?"

@@ -29,6 +29,7 @@
     "memo": "備註",
     "sensitive": "隱藏備註（敏感）",
     "toggleMemo": "切換備註顯示",
+    "hiddenMemo": "已隱藏的備註",
     "unnamed": "帳號",
     "deleteTitle": "刪除帳號",
     "deleteBody": "確定要刪除此帳號嗎？"

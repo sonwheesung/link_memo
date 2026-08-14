@@ -29,6 +29,7 @@
     "memo": "メモ",
     "sensitive": "メモを隠す（機密）",
     "toggleMemo": "メモの表示を切り替え",
+    "hiddenMemo": "非表示のメモ",
     "unnamed": "アカウント",
     "deleteTitle": "アカウントを削除",
     "deleteBody": "このアカウントを削除しますか？"
