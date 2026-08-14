@@ -45,3 +45,6 @@ app-example
 # Native (CNG output - do not commit, regenerate with expo prebuild)
 android/
 ios/
+
+# 빌드 산출물
+*.aab
