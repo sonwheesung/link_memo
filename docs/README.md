@@ -88,6 +88,21 @@ npm run android                # expo run:android --port 8086 (dev build)
 
 - 방화벽: 활성 node.exe(nvm v22.21.1)에 인바운드 허용 규칙이 이미 있어(Public 프로필) 8086이 열려 있다
   (2026-08-14 확인). 실기기 접속 불가 시 조각 순서로 점검: ① 폰 Wi-Fi ② 방화벽 인바운드 ③ 포트 점유 프로세스.
+
+### 외부에서 실기기 접속 — Tailscale (2026-08-14 설정·검증)
+
+집 밖에서도 폰으로 dev 서버에 붙는다. 폰(`s24`)은 이미 같은 테일넷에 등록돼 있다.
+
+```bash
+REACT_NATIVE_PACKAGER_HOSTNAME=100.91.69.45 npx expo start --port 8086   # PC의 Tailscale IP로 광고
+```
+
+- 폰에서: Tailscale 앱 켜기 → Expo Go에서 `exp://100.91.69.45:8086` (QR도 이 주소로 나온다).
+- 방화벽은 손댈 것 없다 — **`Tailscale-In` 규칙이 테일넷 인터페이스의 전 포트를 이미 허용**한다(실측 확인).
+  Metro manifest는 요청 Host를 따라가므로 번들 URL도 자동으로 Tailscale IP가 된다(curl로 검증).
+- ⚠ 이 방식으로 띄우면 같은 Wi-Fi라도 **폰에 Tailscale이 켜져 있어야** 붙는다. 순수 LAN 개발로
+  돌아가려면 env 없이 `npm start`.
+- Tailscale IP가 바뀌면(기기 재등록 등) `tailscale ip -4`로 다시 확인.
 - 광고 SDK(네이티브 모듈)가 들어가는 시점부터 **Expo Go 불가 → dev build**(`npm run android`)로 전환한다
   (조각 실증). 그 전까지는 Expo Go로 개발 가능.
 
