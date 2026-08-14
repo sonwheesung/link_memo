@@ -7,14 +7,15 @@ import { AdBannerPlaceholder } from '@/components/ad-banner-placeholder';
 import { Screen } from '@/components/screen';
 import { useTheme } from '@/theme/use-theme';
 
-// Phase 0 골격 — Phase 2에서 즐겨찾기 영역·전체 사이트 목록으로 대체 (docs/SITE_SYSTEM.md §7)
+// 단일 화면 구조 — 홈이 유일한 메인 화면, 우상단 [검색][추가][설정]이 입구 전부 (docs/SITE_SYSTEM.md §7)
+// Phase 2에서 즐겨찾기 섹션·전체 사이트 목록이 본문에 들어온다.
 export default function HomeScreen() {
   const { t } = useTranslation();
   const router = useRouter();
   const theme = useTheme();
 
   return (
-    <Screen footer={<AdBannerPlaceholder />}>
+    <Screen edges={['top', 'bottom']} footer={<AdBannerPlaceholder />}>
       <View style={styles.header}>
         <Text style={[styles.brand, { color: theme.text }]}>LinkMemo</Text>
         <View style={styles.headerActions}>
@@ -29,6 +30,12 @@ export default function HomeScreen() {
             hitSlop={8}
             accessibilityLabel={t('site.add')}>
             <Ionicons name="add" size={28} color={theme.icon} />
+          </Pressable>
+          <Pressable
+            onPress={() => router.push('/settings')}
+            hitSlop={8}
+            accessibilityLabel={t('common.settings')}>
+            <Ionicons name="settings-outline" size={23} color={theme.icon} />
           </Pressable>
         </View>
       </View>
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   brand: { fontSize: 22, fontWeight: '700' },
-  headerActions: { flexDirection: 'row', alignItems: 'center', gap: 16 },
+  headerActions: { flexDirection: 'row', alignItems: 'center', gap: 18 },
   container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24, gap: 12 },
   title: { fontSize: 20, fontWeight: '600', textAlign: 'center' },
   body: { fontSize: 15, textAlign: 'center' },

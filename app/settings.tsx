@@ -7,7 +7,7 @@ import { Screen } from '@/components/screen';
 import { useThemeStore } from '@/theme/store';
 import { useTheme } from '@/theme/use-theme';
 
-// Phase 0 골격 — Remove Ads(7)·Data·App Information 행이 단계별로 들어온다
+// 스택 화면 — 홈 우상단 ⚙로 진입. Remove Ads(7)·Data·App Information 행이 단계별로 들어온다
 export default function SettingsScreen() {
   const { t } = useTranslation();
   const router = useRouter();
@@ -15,9 +15,8 @@ export default function SettingsScreen() {
   const themeId = useThemeStore((s) => s.themeId);
 
   return (
-    <Screen>
+    <Screen edges={[]}>
       <View style={styles.container}>
-        <Text style={[styles.title, { color: theme.text }]}>{t('settings.title')}</Text>
         <Pressable
           onPress={() => router.push('/theme')}
           style={[styles.row, { backgroundColor: theme.card, borderColor: theme.border }]}>
@@ -35,8 +34,7 @@ export default function SettingsScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, gap: 16 },
-  title: { fontSize: 24, fontWeight: '700' },
+  container: { flex: 1, padding: 20, gap: 12 },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
