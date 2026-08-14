@@ -6,10 +6,11 @@
 
 | 영역 | 상태 | 비고 |
 |---|---|---|
-| 하단 배너 — **자리 플레이스홀더** | ✅ | 2026-08-14 — Phase 6 전까지 실제 광고 대신 점선 박스로 영역 표시(`components/ad-banner-placeholder.tsx`, 홈 `Screen` footer). 높이 60(adaptive 배너 근사) |
-| 하단 배너 — 실제 AdMob | ❌ | Phase 6에서 플레이스홀더를 교체 |
-| App Open 광고 + 쿨타임 3시간 | ❌ | 2026-08-14 확정(§2.2) |
-| UMP 동의 폼(EEA) — 앱 코드 | ❌ | 2026-08-14 확정(§3). **GDPR 메시지는 콘솔에 게시됨**(아래) |
+| ~~하단 배너 — 자리 플레이스홀더~~ | 🚫 | 실배너로 교체하며 삭제(2026-08-14) |
+| 하단 배너 — 실제 AdMob | ✅ | 2026-08-14 — `components/ad-banner.tsx`(ANCHORED_ADAPTIVE). 미수신·미초기화·구매자면 자리 미점유. dev는 테스트 단위 |
+| App Open 광고 + 쿨타임 3시간 | ✅ | 2026-08-14 — `features/ads/app-open.ts`. 콜드 스타트만, 쿨타임 전엔 로드 안 함, 로드 8초 타임아웃(시작을 안 붙잡음) |
+| UMP 동의 폼(EEA) — 앱 코드 | ✅ | 2026-08-14 — `features/ads/ads.ts`(requestInfoUpdate→REQUIRED면 showForm→init). 실패해도 앱 진행 |
+| 광고 게이트 `adsEnabled()` | ✅ | 2026-08-14 — `features/ads/store.ts` 단일 출처. Phase 7에서 removeAds 연결 |
 | AdMob 앱·광고단위 발급 | ✅ | 2026-08-14 브라우저로 직접 발급(§AdMob 계정) |
 | Remove Ads 구매 (RevenueCat 익명) | ❌ | 2026-08-14 확정(§4) |
 | Restore Purchases | ❌ | |

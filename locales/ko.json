@@ -46,9 +46,6 @@
   "favorites": {
     "empty": "아직 즐겨찾기가 없어요."
   },
-  "ads": {
-    "bannerPlaceholder": "배너 광고 영역"
-  },
   "settings": {
     "theme": "테마",
     "language": "언어",

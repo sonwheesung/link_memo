@@ -3,14 +3,22 @@ import '@/lib/i18n';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { BootGate } from '@/components/boot-gate';
+import { initAds } from '@/features/ads/ads';
+import { maybeShowAppOpenAd } from '@/features/ads/app-open';
 import { useTheme } from '@/theme/use-theme';
 
 export default function RootLayout() {
   const { t } = useTranslation();
   const theme = useTheme();
+
+  // 콜드 스타트 1회: 동의 → SDK init → App Open(3시간 쿨타임). 실패해도 앱을 막지 않는다
+  useEffect(() => {
+    void initAds().then(maybeShowAppOpenAd);
+  }, []);
 
   return (
     <BootGate>

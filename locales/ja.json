@@ -46,9 +46,6 @@
   "favorites": {
     "empty": "まだお気に入りがありません。"
   },
-  "ads": {
-    "bannerPlaceholder": "バナー広告エリア"
-  },
   "settings": {
     "theme": "テーマ",
     "language": "言語",

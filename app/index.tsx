@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { AdBannerPlaceholder } from '@/components/ad-banner-placeholder';
+import { AdBanner } from '@/components/ad-banner';
 import { Screen } from '@/components/screen';
 import { SiteIcon } from '@/components/site-icon';
 import { ensureFavicon } from '@/features/sites/favicon';
@@ -32,7 +32,7 @@ export default function HomeScreen() {
   const openSite = (id: string) => router.push({ pathname: '/site/[id]', params: { id } });
 
   return (
-    <Screen edges={['top', 'bottom']} footer={<AdBannerPlaceholder />}>
+    <Screen edges={['top', 'bottom']} footer={<AdBanner />}>
       <View style={styles.header}>
         <Text style={[styles.brand, { color: theme.text }]}>LinkMemo</Text>
         <View style={styles.headerActions}>
