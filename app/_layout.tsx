@@ -17,6 +17,7 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="site-add" options={{ presentation: 'modal', title: t('site.add') }} />
+        <Stack.Screen name="search" options={{ title: t('common.search') }} />
       </Stack>
       <StatusBar style="auto" />
     </>

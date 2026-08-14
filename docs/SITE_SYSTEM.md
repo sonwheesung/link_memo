@@ -127,8 +127,8 @@ Accounts
 | `work` | Work 계정이 등록된 사이트 |
 | `project` | "project"가 포함된 메모의 사이트 |
 
-- **검색 입구는 홈 상단 검색바 하나뿐**(2026-08-14 사용자 결정) — ~~Search 탭·우상단 돋보기~~ 제거.
-  조각이 같은 강등을 실증했다(검색은 목적지가 아니라 도구다).
+- 검색 입구는 ~~홈 검색바~~ → **홈 우상단 검색 버튼 하나 → 검색 화면**(2026-08-14 사용자 재정정).
+  Search 탭은 없다(조각의 강등 실증 승계 — 검색은 목적지가 아니라 도구다).
 - 결과는 사이트 단위로 묶어 보여준다(어느 필드가 맞았는지 힌트 표시).
 - **민감(숨김) 메모 본문**: 매치는 시키되 결과 미리보기에 본문을 노출하지 않는다(§3의 숨김 약속과 일관).
 
@@ -141,8 +141,7 @@ Accounts
 ## 7. 홈 화면 · 하단 네비게이션
 
 ```
-LinkMemo
-[ 🔍 Search ]                   ← 유일한 검색 입구(2026-08-14 결정)
+LinkMemo                🔍  ＋   ← 우상단 헤더 버튼 2개 = 유일한 검색·추가 입구(2026-08-14 재정정)
 Favorites   [GitHub] [Notion] [Gmail]     (+ 편집 — 시안 반영)
 All Sites
   YouTube  youtube.com   2      ← 숫자 = 계정 수 배지
@@ -150,10 +149,11 @@ All Sites
 ─────────────────────────
         Banner Ad               ← 네비 위(MONETIZATION_SYSTEM §2)
 ─────────────────────────
-Home    +    Favorites  Settings     ← 4탭(2026-08-14 정정 — Search 탭 제거)
+Home    Favorites    Settings   ← 3탭(2026-08-14 재정정 — Search에 이어 +도 네비에서 제거)
 ```
 
-- `+`는 사이트 추가 진입. Settings에는 Theme · Remove Ads · Security(P1 자리) · Data · App Information.
+- 🔍는 검색 화면으로, ＋는 사이트 추가 화면으로. 홈 본문에 검색바는 두지 않는다(입구 중복 금지).
+- Settings에는 Theme · Remove Ads · Security(P1 자리) · Data · App Information.
 - ~~"최근 사이트" 고려~~ → **MVP 제외, P1**(2026-08-14 판단).
 - ⚠ 테마 시안(`design/theme-mockups-10.png`)은 5탭으로 그려져 있다 — **네비 구성은 이 문서가 정본**이고
   시안은 팔레트·톤 기준으로만 쓴다(THEME_SYSTEM §1).
