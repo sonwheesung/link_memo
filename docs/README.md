@@ -61,7 +61,7 @@
 | common_server `apps`에 `linkmemo` 등록 | ✅ | 2026-08-14 — `bootstrap?app=linkmemo` **200 실측** |
 | common_server SDK 복사(`lib/common-server/`) | ✅ | 2026-08-14 — SDK_VERSION 2026-08-10 |
 | 디스코드 문의 웹훅 env + 재배포 | ✅ | 2026-08-14 — `DISCORD_TICKET_WEBHOOK_URL_LINKMEMO` 등록·재배포·테스트 문의 발사. ⚠ 이 과정에서 `.env.local` 개행 사고로 SESSION_JWT_SECRET **회전**(기존 세션 1회 무효화 — 기기 토큰은 자동 재등록) |
-| AdMob 앱·광고단위(배너 1 · **App Open** 1) + GDPR 메시지 설정 | ❌ | 스토어 미출시 상태의 "게재 제한"은 정상 |
+| AdMob 앱·광고단위(배너 1 · **App Open** 1) + GDPR 메시지 설정 | ✅ | 2026-08-14 — ID·게시 상태는 [`MONETIZATION_SYSTEM.md`](./MONETIZATION_SYSTEM.md) §3.1. ⚠ 처리방침 URL 약속 주소 참조 |
 | RevenueCat 프로젝트 생성(익명 모드) | ❌ | 웹훅·서버 연동 없음 |
 | 스토어 Remove Ads 상품 등록 | ❌ | 비소모성 1상품 |
 | 처리방침·약관 게시 | ❌ | 사업자 값은 `C:\project\common\BUSINESS_INFO.md` |

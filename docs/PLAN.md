@@ -91,8 +91,8 @@
 
 ## Phase 6 — 광고 (1일) ⚠ 사용자 작업 포함
 
-- ⚠ **사용자**: AdMob 콘솔에서 LinkMemo 앱 생성 + 광고단위 2개(배너·App Open) 발급,
-  Privacy & messaging에서 GDPR 메시지 설정
+- ~~⚠ 사용자: AdMob 콘솔 발급~~ → ✅ **2026-08-14 브라우저로 대행 완료**(앱·배너·App Open·GDPR 메시지 게시 —
+  MONETIZATION §3.1). ⚠ 처리방침을 Phase 8에서 `vivace-games.com/linkmemo/privacy`에 게시해야 한다
 - `react-native-google-mobile-ads` **16.0.0 고정** 설치 → **Expo Go 탈출, dev build 전환**
   (`npm run android` — 이후 개발은 dev client)
 - 배너: `Screen` footer(홈, 네비 위), 미수신 시 자리 미점유, 키보드 시 숨김

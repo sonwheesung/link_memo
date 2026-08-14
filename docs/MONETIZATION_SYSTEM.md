@@ -9,8 +9,8 @@
 | 하단 배너 — **자리 플레이스홀더** | ✅ | 2026-08-14 — Phase 6 전까지 실제 광고 대신 점선 박스로 영역 표시(`components/ad-banner-placeholder.tsx`, 홈 `Screen` footer). 높이 60(adaptive 배너 근사) |
 | 하단 배너 — 실제 AdMob | ❌ | Phase 6에서 플레이스홀더를 교체 |
 | App Open 광고 + 쿨타임 3시간 | ❌ | 2026-08-14 확정(§2.2) |
-| UMP 동의 폼(EEA) | ❌ | 2026-08-14 확정(§3) |
-| AdMob 앱·광고단위 발급 | ❌ | LinkMemo 밖 선행 작업 |
+| UMP 동의 폼(EEA) — 앱 코드 | ❌ | 2026-08-14 확정(§3). **GDPR 메시지는 콘솔에 게시됨**(아래) |
+| AdMob 앱·광고단위 발급 | ✅ | 2026-08-14 브라우저로 직접 발급(§AdMob 계정) |
 | Remove Ads 구매 (RevenueCat 익명) | ❌ | 2026-08-14 확정(§4) |
 | Restore Purchases | ❌ | |
 
@@ -103,6 +103,20 @@ is focused on a task at hand (e.g. filling out a form, reading content) may lead
   코드 문제로 오해하지 않는다.
 
 ---
+
+## 3.1 AdMob 계정 (2026-08-14 발급 — 브라우저로 직접)
+
+| 것 | 값 |
+|---|---|
+| AdMob 앱 (Android) | `ca-app-pub-2731473780180274~5530245962` — `app.json` config plugin에 들어간다(네이티브 매니페스트에 박힘 — 변경 시 prebuild 재빌드) |
+| 배너 `홈 하단 배너` | `ca-app-pub-2731473780180274/8027778765` |
+| 앱 오프닝 `앱 시작 오프닝` | `ca-app-pub-2731473780180274/9500642536` |
+| GDPR 메시지 | **"LinkMemo GDPR" 게시됨**(2026-08-14) — 동의/옵션 관리/**동의하지 않음(전 EEA 국가)** 3버튼, 기본 언어 영어 |
+
+- ⚠ **처리방침 URL을 `https://vivace-games.com/linkmemo/privacy`로 지정했다** — 아직 없는 주소다.
+  **Phase 8에서 반드시 이 정확한 경로에 게시**하거나, 다른 주소로 게시하면 GDPR 메시지의 URL을 갱신할 것.
+- 개발 빌드는 여전히 **Google 테스트 단위**를 쓴다(`__DEV__` 분기) — 실단위로 개발하면 무효 트래픽으로 계정 정지 위험.
+- 이 앱은 스토어 미출시라 "검토 필요 · 게재 제한" 상태가 정상. Play 출시 후 스토어 연결 → 승인까지 실노출 0.
 
 ## 4. Remove Ads 상품
 
