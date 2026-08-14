@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Screen } from '@/components/screen';
+import { LANGUAGE_LABELS } from '@/lib/i18n';
+import { useLanguageStore } from '@/lib/language';
 import { useThemeStore } from '@/theme/store';
 import { useTheme } from '@/theme/use-theme';
 
@@ -13,21 +15,38 @@ export default function SettingsScreen() {
   const router = useRouter();
   const theme = useTheme();
   const themeId = useThemeStore((s) => s.themeId);
+  const languageOverride = useLanguageStore((s) => s.override);
+
+  const rows = [
+    {
+      key: 'theme',
+      label: t('settings.theme'),
+      value: t(`theme.names.${themeId}`),
+      onPress: () => router.push('/theme'),
+    },
+    {
+      key: 'language',
+      label: t('settings.language'),
+      value: languageOverride ? LANGUAGE_LABELS[languageOverride] : t('language.system'),
+      onPress: () => router.push('/language'),
+    },
+  ];
 
   return (
     <Screen edges={[]}>
       <View style={styles.container}>
-        <Pressable
-          onPress={() => router.push('/theme')}
-          style={[styles.row, { backgroundColor: theme.card, borderColor: theme.border }]}>
-          <Text style={[styles.rowLabel, { color: theme.text }]}>{t('settings.theme')}</Text>
-          <View style={styles.rowRight}>
-            <Text style={[styles.rowValue, { color: theme.textMuted }]}>
-              {t(`theme.names.${themeId}`)}
-            </Text>
-            <Ionicons name="chevron-forward" size={16} color={theme.textMuted} />
-          </View>
-        </Pressable>
+        {rows.map((row) => (
+          <Pressable
+            key={row.key}
+            onPress={row.onPress}
+            style={[styles.row, { backgroundColor: theme.card, borderColor: theme.border }]}>
+            <Text style={[styles.rowLabel, { color: theme.text }]}>{row.label}</Text>
+            <View style={styles.rowRight}>
+              <Text style={[styles.rowValue, { color: theme.textMuted }]}>{row.value}</Text>
+              <Ionicons name="chevron-forward" size={16} color={theme.textMuted} />
+            </View>
+          </Pressable>
+        ))}
       </View>
     </Screen>
   );

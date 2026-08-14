@@ -1,0 +1,71 @@
+{
+  "common": {
+    "search": "搜索",
+    "settings": "设置",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "favorites": "收藏"
+  },
+  "site": {
+    "add": "添加网站",
+    "edit": "编辑网站",
+    "name": "网站名称",
+    "namePlaceholder": "网站名称（可选）",
+    "url": "URL",
+    "invalidUrl": "请输入有效的网址。",
+    "openInBrowser": "在浏览器中打开",
+    "openFailed": "无法打开此网址。",
+    "deleteTitle": "删除网站",
+    "deleteBody": "确定删除“{{name}}”吗？其中的 {{count}} 个账号也将一并删除。",
+    "allSites": "全部网站"
+  },
+  "account": {
+    "sectionTitle": "账号",
+    "add": "添加账号",
+    "edit": "编辑账号",
+    "name": "账号名称",
+    "username": "用户名 / ID",
+    "memo": "备注",
+    "sensitive": "隐藏备注（敏感）",
+    "toggleMemo": "切换备注显示",
+    "unnamed": "账号",
+    "deleteTitle": "删除账号",
+    "deleteBody": "确定删除此账号吗？"
+  },
+  "home": {
+    "emptyTitle": "保存链接，记录重要信息。",
+    "emptyBody": "添加常用网站，在一个地方管理账号和备注。"
+  },
+  "data": {
+    "notice": "数据仅保存在此设备上。如果删除应用或更换设备，数据可能会丢失。"
+  },
+  "favorites": {
+    "empty": "还没有收藏。"
+  },
+  "ads": {
+    "bannerPlaceholder": "横幅广告区域"
+  },
+  "settings": {
+    "theme": "主题",
+    "language": "语言"
+  },
+  "theme": {
+    "current": "当前主题",
+    "names": {
+      "minimalLight": "极简浅色",
+      "darkModern": "现代深色",
+      "natureGreen": "自然绿",
+      "skyBlue": "天空蓝",
+      "warmBeige": "暖米色",
+      "neonCyber": "霓虹赛博",
+      "carbonGray": "碳灰",
+      "pastelLavender": "粉彩薰衣草",
+      "yellowPoint": "黄色点缀",
+      "oceanDeep": "深海蓝"
+    }
+  },
+  "language": {
+    "system": "跟随系统"
+  }
+}

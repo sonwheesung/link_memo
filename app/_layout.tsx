@@ -20,10 +20,13 @@ export default function RootLayout() {
           contentStyle: { backgroundColor: theme.background },
         }}>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="site-add" options={{ presentation: 'modal', title: t('site.add') }} />
+        <Stack.Screen name="site-add" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="site/[id]" options={{ title: '' }} />
+        <Stack.Screen name="account-form" options={{ presentation: 'modal' }} />
         <Stack.Screen name="search" options={{ title: t('common.search') }} />
         <Stack.Screen name="settings" options={{ title: t('common.settings') }} />
         <Stack.Screen name="theme" options={{ title: t('settings.theme') }} />
+        <Stack.Screen name="language" options={{ title: t('settings.language') }} />
       </Stack>
       <StatusBar style={theme.isDark ? 'light' : 'dark'} />
     </>

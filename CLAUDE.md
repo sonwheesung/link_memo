@@ -281,13 +281,13 @@ Neon Cyber · Carbon Gray · Pastel Lavender · Yellow Point · Ocean Deep
 | 언어 | TypeScript ~5.9 (`strict` · `any` 금지) | ✅ typecheck 통과 |
 | 네비게이션 | expo-router ~6.0.24 | ✅ 설치 |
 | 상태 | Zustand (+ AsyncStorage persist) | ✅ 설치(2026-08-14, 테마 store가 첫 사용처) |
-| **로컬 DB** | **expo-sqlite** — 검색(이름·URL·ID·메모 전체 대상)에 쿼리가 필요하다 | ❌ |
+| **로컬 DB** | **expo-sqlite** (+ expo-crypto UUID) — 검색(이름·URL·ID·메모 전체 대상)에 쿼리가 필요하다 | ✅ 설치(2026-08-14, [`docs/DATABASE.md`](./docs/DATABASE.md)) |
 | 보안 저장 | expo-secure-store — 암호화 전략 확정 시(§14) | ❌ |
 | 광고 | react-native-google-mobile-ads (AdMob) — ⚠ **16.0.0 고정** 승계(16.4.0은 Kotlin 2.3 충돌, 조각 §7) | ❌ |
 | 개발 실행 | **dev build** (`npx expo run:android`) — 광고 SDK가 네이티브 모듈이라 **Expo Go 불가**(조각 실증) | ❌ |
 | 결제 | react-native-purchases (**RevenueCat 익명 모드**) — 비소모성 1상품(2026-08-14 판단, §14 #2) | ❌ |
 | 브라우저 열기 | expo-linking (`Linking.openURL`) — 외부 기본 브라우저 | ❌ |
-| 다국어 | i18next · react-i18next · expo-localization | ✅ 뼈대(en·ko, 2026-08-14) — ja·zh 2종은 Phase 4 |
+| 다국어 | i18next · react-i18next · expo-localization | ✅ **5개 언어 전체**(2026-08-14) + `check:i18n` + 수동 변경. ⚠ ja·zh 원어민 검수 전 |
 | 날짜 | dayjs | ❌ |
 | 백엔드 | **없음.** 공지·문의만 common_server SDK 복사(`lib/common-server/`) | ❌ |
 | 배포 | Expo EAS | ❌ |

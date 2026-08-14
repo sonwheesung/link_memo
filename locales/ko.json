@@ -1,13 +1,37 @@
 {
   "common": {
-    "home": "홈",
-    "add": "추가",
-    "favorites": "즐겨찾기",
+    "search": "검색",
     "settings": "설정",
-    "search": "검색"
+    "save": "저장",
+    "cancel": "취소",
+    "delete": "삭제",
+    "favorites": "즐겨찾기"
   },
   "site": {
-    "add": "사이트 추가"
+    "add": "사이트 추가",
+    "edit": "사이트 수정",
+    "name": "사이트 이름",
+    "namePlaceholder": "사이트 이름 (선택)",
+    "url": "URL",
+    "invalidUrl": "올바른 주소를 입력해 주세요.",
+    "openInBrowser": "브라우저에서 열기",
+    "openFailed": "이 주소를 열 수 없어요.",
+    "deleteTitle": "사이트 삭제",
+    "deleteBody": "\"{{name}}\"을(를) 삭제할까요? 등록된 계정 {{count}}개도 함께 삭제돼요.",
+    "allSites": "전체 사이트"
+  },
+  "account": {
+    "sectionTitle": "계정",
+    "add": "계정 추가",
+    "edit": "계정 수정",
+    "name": "계정 이름",
+    "username": "사용자 이름 / ID",
+    "memo": "메모",
+    "sensitive": "메모 숨기기 (민감한 메모)",
+    "toggleMemo": "메모 표시 전환",
+    "unnamed": "계정",
+    "deleteTitle": "계정 삭제",
+    "deleteBody": "이 계정을 삭제할까요?"
   },
   "home": {
     "emptyTitle": "링크를 저장하고, 필요한 것을 함께 기록하세요.",
@@ -23,8 +47,8 @@
     "bannerPlaceholder": "배너 광고 영역"
   },
   "settings": {
-    "title": "설정",
-    "theme": "테마"
+    "theme": "테마",
+    "language": "언어"
   },
   "theme": {
     "current": "현재 테마",
@@ -40,5 +64,8 @@
       "yellowPoint": "옐로우 포인트",
       "oceanDeep": "오션 딥"
     }
+  },
+  "language": {
+    "system": "시스템 설정 따르기"
   }
 }

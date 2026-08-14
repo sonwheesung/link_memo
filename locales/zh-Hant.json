@@ -1,0 +1,71 @@
+{
+  "common": {
+    "search": "搜尋",
+    "settings": "設定",
+    "save": "儲存",
+    "cancel": "取消",
+    "delete": "刪除",
+    "favorites": "收藏"
+  },
+  "site": {
+    "add": "新增網站",
+    "edit": "編輯網站",
+    "name": "網站名稱",
+    "namePlaceholder": "網站名稱（選填）",
+    "url": "URL",
+    "invalidUrl": "請輸入有效的網址。",
+    "openInBrowser": "在瀏覽器中開啟",
+    "openFailed": "無法開啟此網址。",
+    "deleteTitle": "刪除網站",
+    "deleteBody": "確定要刪除「{{name}}」嗎？其中的 {{count}} 個帳號也會一併刪除。",
+    "allSites": "全部網站"
+  },
+  "account": {
+    "sectionTitle": "帳號",
+    "add": "新增帳號",
+    "edit": "編輯帳號",
+    "name": "帳號名稱",
+    "username": "使用者名稱 / ID",
+    "memo": "備註",
+    "sensitive": "隱藏備註（敏感）",
+    "toggleMemo": "切換備註顯示",
+    "unnamed": "帳號",
+    "deleteTitle": "刪除帳號",
+    "deleteBody": "確定要刪除此帳號嗎？"
+  },
+  "home": {
+    "emptyTitle": "儲存連結，記下重要資訊。",
+    "emptyBody": "新增常用網站，在同一個地方管理帳號與備註。"
+  },
+  "data": {
+    "notice": "資料僅儲存在此裝置上。若刪除應用程式或更換裝置，資料可能會遺失。"
+  },
+  "favorites": {
+    "empty": "還沒有收藏。"
+  },
+  "ads": {
+    "bannerPlaceholder": "橫幅廣告區域"
+  },
+  "settings": {
+    "theme": "主題",
+    "language": "語言"
+  },
+  "theme": {
+    "current": "目前主題",
+    "names": {
+      "minimalLight": "極簡淺色",
+      "darkModern": "現代深色",
+      "natureGreen": "自然綠",
+      "skyBlue": "天空藍",
+      "warmBeige": "暖米色",
+      "neonCyber": "霓虹賽博",
+      "carbonGray": "碳灰",
+      "pastelLavender": "粉彩薰衣草",
+      "yellowPoint": "黃色點綴",
+      "oceanDeep": "深海藍"
+    }
+  },
+  "language": {
+    "system": "跟隨系統"
+  }
+}

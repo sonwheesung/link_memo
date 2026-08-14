@@ -1,0 +1,71 @@
+{
+  "common": {
+    "search": "検索",
+    "settings": "設定",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "favorites": "お気に入り"
+  },
+  "site": {
+    "add": "サイトを追加",
+    "edit": "サイトを編集",
+    "name": "サイト名",
+    "namePlaceholder": "サイト名（任意）",
+    "url": "URL",
+    "invalidUrl": "有効なURLを入力してください。",
+    "openInBrowser": "ブラウザで開く",
+    "openFailed": "このURLを開けませんでした。",
+    "deleteTitle": "サイトを削除",
+    "deleteBody": "「{{name}}」を削除しますか？登録された{{count}}件のアカウントも削除されます。",
+    "allSites": "すべてのサイト"
+  },
+  "account": {
+    "sectionTitle": "アカウント",
+    "add": "アカウントを追加",
+    "edit": "アカウントを編集",
+    "name": "アカウント名",
+    "username": "ユーザー名 / ID",
+    "memo": "メモ",
+    "sensitive": "メモを隠す（機密）",
+    "toggleMemo": "メモの表示を切り替え",
+    "unnamed": "アカウント",
+    "deleteTitle": "アカウントを削除",
+    "deleteBody": "このアカウントを削除しますか？"
+  },
+  "home": {
+    "emptyTitle": "リンクを保存して、大切な情報を一緒に。",
+    "emptyBody": "よく使うウェブサイトを追加して、アカウントとメモを一か所で管理できます。"
+  },
+  "data": {
+    "notice": "データはこの端末にのみ保存されます。アプリを削除したり端末を変更すると、データが失われる可能性があります。"
+  },
+  "favorites": {
+    "empty": "まだお気に入りがありません。"
+  },
+  "ads": {
+    "bannerPlaceholder": "バナー広告エリア"
+  },
+  "settings": {
+    "theme": "テーマ",
+    "language": "言語"
+  },
+  "theme": {
+    "current": "現在のテーマ",
+    "names": {
+      "minimalLight": "ミニマルライト",
+      "darkModern": "ダークモダン",
+      "natureGreen": "ネイチャーグリーン",
+      "skyBlue": "スカイブルー",
+      "warmBeige": "ウォームベージュ",
+      "neonCyber": "ネオンサイバー",
+      "carbonGray": "カーボングレー",
+      "pastelLavender": "パステルラベンダー",
+      "yellowPoint": "イエローポイント",
+      "oceanDeep": "オーシャンディープ"
+    }
+  },
+  "language": {
+    "system": "システム設定に従う"
+  }
+}

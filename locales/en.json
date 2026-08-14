@@ -1,13 +1,37 @@
 {
   "common": {
-    "home": "Home",
-    "add": "Add",
-    "favorites": "Favorites",
+    "search": "Search",
     "settings": "Settings",
-    "search": "Search"
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "favorites": "Favorites"
   },
   "site": {
-    "add": "Add Site"
+    "add": "Add Site",
+    "edit": "Edit Site",
+    "name": "Site Name",
+    "namePlaceholder": "Site name (optional)",
+    "url": "URL",
+    "invalidUrl": "Enter a valid URL.",
+    "openInBrowser": "Open in Browser",
+    "openFailed": "Couldn't open this URL.",
+    "deleteTitle": "Delete Site",
+    "deleteBody": "Delete \"{{name}}\"? Its {{count}} account(s) will also be deleted.",
+    "allSites": "All Sites"
+  },
+  "account": {
+    "sectionTitle": "Accounts",
+    "add": "Add Account",
+    "edit": "Edit Account",
+    "name": "Account Name",
+    "username": "Username / ID",
+    "memo": "Memo",
+    "sensitive": "Hide memo (sensitive)",
+    "toggleMemo": "Toggle memo visibility",
+    "unnamed": "Account",
+    "deleteTitle": "Delete Account",
+    "deleteBody": "Delete this account?"
   },
   "home": {
     "emptyTitle": "Save links. Keep what matters.",
@@ -23,8 +47,8 @@
     "bannerPlaceholder": "Banner ad area"
   },
   "settings": {
-    "title": "Settings",
-    "theme": "Theme"
+    "theme": "Theme",
+    "language": "Language"
   },
   "theme": {
     "current": "Current",
@@ -40,5 +64,8 @@
       "yellowPoint": "Yellow Point",
       "oceanDeep": "Ocean Deep"
     }
+  },
+  "language": {
+    "system": "System default"
   }
 }
