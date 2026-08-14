@@ -115,13 +115,13 @@ export default function HomeScreen() {
                   {displayDomain(item.url)}
                 </Text>
               </View>
-              {item.favorite ? (
-                <Ionicons name="heart" size={14} color={theme.primary} />
-              ) : null}
               {item.accountCount > 0 ? (
                 <View style={[styles.badge, { backgroundColor: theme.badge }]}>
                   <Text style={[styles.badgeText, { color: theme.badgeText }]}>{item.accountCount}</Text>
                 </View>
+              ) : null}
+              {item.favorite ? (
+                <Ionicons name="heart" size={14} color={theme.primary} />
               ) : null}
             </Pressable>
           )}
