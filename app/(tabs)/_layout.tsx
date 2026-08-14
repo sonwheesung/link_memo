@@ -2,12 +2,22 @@ import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
+import { useTheme } from '@/theme/use-theme';
+
 // 하단 네비 3탭: Home · Favorites · Settings — 검색·추가는 홈 우상단 헤더 버튼 (CLAUDE.md §3, 2026-08-14 재정정)
 export default function TabLayout() {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
-    <Tabs screenOptions={{ headerShown: false }}>
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: theme.navigationActive,
+        tabBarInactiveTintColor: theme.textMuted,
+        tabBarStyle: { backgroundColor: theme.navigation, borderTopColor: theme.border },
+        sceneStyle: { backgroundColor: theme.background },
+      }}>
       <Tabs.Screen
         name="index"
         options={{

@@ -20,6 +20,22 @@
     "empty": "No favorites yet."
   },
   "settings": {
-    "title": "Settings"
+    "title": "Settings",
+    "theme": "Theme"
+  },
+  "theme": {
+    "current": "Current",
+    "names": {
+      "minimalLight": "Minimal Light",
+      "darkModern": "Dark Modern",
+      "natureGreen": "Nature Green",
+      "skyBlue": "Sky Blue",
+      "warmBeige": "Warm Beige",
+      "neonCyber": "Neon Cyber",
+      "carbonGray": "Carbon Gray",
+      "pastelLavender": "Pastel Lavender",
+      "yellowPoint": "Yellow Point",
+      "oceanDeep": "Ocean Deep"
+    }
   }
 }

@@ -20,6 +20,22 @@
     "empty": "아직 즐겨찾기가 없어요."
   },
   "settings": {
-    "title": "설정"
+    "title": "설정",
+    "theme": "테마"
+  },
+  "theme": {
+    "current": "현재 테마",
+    "names": {
+      "minimalLight": "미니멀 라이트",
+      "darkModern": "다크 모던",
+      "natureGreen": "네이처 그린",
+      "skyBlue": "스카이 블루",
+      "warmBeige": "웜 베이지",
+      "neonCyber": "네온 사이버",
+      "carbonGray": "카본 그레이",
+      "pastelLavender": "파스텔 라벤더",
+      "yellowPoint": "옐로우 포인트",
+      "oceanDeep": "오션 딥"
+    }
   }
 }

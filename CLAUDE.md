@@ -280,7 +280,7 @@ Neon Cyber · Carbon Gray · Pastel Lavender · Yellow Point · Ocean Deep
 | 앱 | Expo **SDK 54**(~54.0.35) · RN 0.81.5 · React 19.1.0 | ✅ 설치(2026-08-14 스캐폴드) |
 | 언어 | TypeScript ~5.9 (`strict` · `any` 금지) | ✅ typecheck 통과 |
 | 네비게이션 | expo-router ~6.0.24 | ✅ 설치 |
-| 상태 | Zustand | ❌ |
+| 상태 | Zustand (+ AsyncStorage persist) | ✅ 설치(2026-08-14, 테마 store가 첫 사용처) |
 | **로컬 DB** | **expo-sqlite** — 검색(이름·URL·ID·메모 전체 대상)에 쿼리가 필요하다 | ❌ |
 | 보안 저장 | expo-secure-store — 암호화 전략 확정 시(§14) | ❌ |
 | 광고 | react-native-google-mobile-ads (AdMob) — ⚠ **16.0.0 고정** 승계(16.4.0은 Kotlin 2.3 충돌, 조각 §7) | ❌ |

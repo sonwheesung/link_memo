@@ -7,10 +7,22 @@
 
 | 영역 | 상태 |
 |---|---|
-| 테마 토큰 구조(`theme/palettes.ts`) | ❌ |
-| 10종 팔레트 정의 | ❌ |
-| 선택 UX(Settings → Theme, 미리보기 그리드) | ❌ |
-| 선택 로컬 저장 | ❌ |
+| 테마 토큰 구조(`theme/palettes.ts` — 19토큰 + isDark) | ✅ 2026-08-14 |
+| 10종 팔레트 정의(시안 추출 근사값) | ✅ 2026-08-14 — 실기기 대조 조정 여지 |
+| 선택 UX(Settings → Theme, 토큰 미니어처 그리드) | ✅ 2026-08-14 |
+| 선택 로컬 저장(zustand persist + AsyncStorage) | ✅ 2026-08-14 — 깨진 저장값은 기본 테마 폴백 |
+| 상태바·탭바·스택 헤더 토큰 연동 | ✅ 2026-08-14 |
+
+## 구현 설계 (2026-08-14 — Phase 1 착수 결정)
+
+| 항목 | 결정 |
+|---|---|
+| 파일 | `theme/palettes.ts`(토큰 인터페이스 + 10종) · `theme/store.ts`(Zustand) · `theme/use-theme.ts` |
+| 저장 | **AsyncStorage**(zustand persist) — DB(Phase 2) 이전에 테마가 필요하고, 설정은 키·값 성격이라 SQLite에 넣을 이유가 없다 |
+| 토큰 | CLAUDE.md §9의 13요소를 코드 토큰으로 확장(파생 포함 — text/textMuted, button/buttonText, navigation/navigationActive, badge/badgeText, border, `isDark`). **컴포넌트는 색상 리터럴 금지, 토큰만 참조** |
+| 정확한 hex | `theme/palettes.ts`가 정본 — 시안(`design/theme-mockups-10.png`)에서 추출한 근사값으로 시작, 실기기 대조로 조정 |
+| 상태바·헤더 | `isDark`에서 파생(다크 계열 02·06·07·10은 라이트 콘텐츠) |
+| 화면 틀 | `components/screen.tsx` — 배경 토큰 + 세이프에어리어 + (Phase 6용) footer 자리 |
 
 ---
 
@@ -71,9 +83,9 @@ Current: Minimal Light
 
 ---
 
-## 4. 미결정
+## 4. ~~미결정~~ → 확정 (2026-08-14)
 
-- **기본 테마** — Minimal Light 유력. 시스템 다크모드일 때 Dark Modern으로 자동 선택할지,
-  시스템 설정과 무관하게 사용자 선택만 따를지. (10종 테마와 라이트/다크 자동 전환은 축이 다르다 —
-  섞으면 "다크모드인데 Warm Beige면?"이 생긴다. 구현 전 매듭.)
-- 테마별 배너 광고 배경 처리(광고는 테마를 모른다 — 경계선/여백으로 흡수).
+- **기본 테마 = Minimal Light.** **시스템 다크모드 자동 전환은 하지 않는다** — 테마는 사용자 선택
+  단일 축이다. 10종 테마와 라이트/다크 자동 전환을 섞으면 "다크모드인데 Warm Beige면?"이 생긴다.
+  다크를 원하는 사용자는 다크 계열 테마(02·06·07·10)를 고르면 된다.
+- 테마별 배너 광고 배경 처리(광고는 테마를 모른다) — 경계선/여백으로 흡수, Phase 6에서 확인.
